@@ -99,7 +99,9 @@ function Hero() {
               <Mail className="size-4" /> Contact Me
             </a>
             <a
-              href="#"
+              href="https://drive.google.com/file/d/1WivYU3O0mo9HapYG8hZkyYL3Z2DPxgYF/view?usp=drive_link"
+              target="_blank"
+              rel="noreferrer"
               className="inline-flex items-center gap-2 rounded-full border border-border px-5 py-2.5 text-sm font-medium text-muted-foreground hover:text-foreground hover:border-foreground/30 transition"
             >
               <Download className="size-4" /> Resume
@@ -345,23 +347,29 @@ const PROJECTS = [
   {
     name: "BragBoard",
     sub: "Real-Time Employee Recognition Platform",
-    desc: "Full-stack employee recognition platform with live activity feed, shout-outs, reactions, and gamified leaderboards.",
-    impact: ["80% fewer DB calls (N+1 fix)", "Optimistic UI updates", "Scalable pagination & lazy loading"],
+    desc: "Full-stack employee recognition platform with real-time activity feed, shout-outs, reactions, and gamified leaderboards.",
+    impact: ["~80% fewer DB calls (N+1 fix)", "Optimistic UI updates", "~50% faster interaction"],
     stack: ["Node.js", "Express", "MongoDB", "Socket.IO", "React"],
+    github: "https://github.com/springboardmentor182e/bragboard-feb-26",
+    live: "https://bragboard-client.onrender.com",
   },
   {
     name: "CapabilityMap",
     sub: "Student Readiness & Skill Gap Analyzer",
-    desc: "Maps student skills and projects to job role requirements with relevance-based filtering and learning paths.",
-    impact: ["+40% role-matching accuracy", "Targeted learning paths", "Faster readiness evaluation"],
+    desc: "Full-stack platform mapping student skills to job role requirements with readiness scores and skill gap analysis.",
+    impact: ["40% improved accuracy", "30% less redundant learning", "35% faster evaluation"],
     stack: ["FastAPI", "Python", "PostgreSQL", "React"],
+    github: "https://github.com/shanus0007/CapabilityGap",
+    live: "https://capability-gap.vercel.app/",
   },
   {
     name: "OSINT Recon Dashboard",
     sub: "Real-Time Reconnaissance & Threat Analysis",
-    desc: "Automated recon dashboard with WHOIS, crt.sh, IP intel, and async port scanning aggregated in real time.",
-    impact: ["−60% manual recon effort", "Async Flask pipeline", "Real-time aggregation"],
+    desc: "Automated recon dashboard integrating WHOIS, crt.sh, IP intelligence, and port scanning for unified threat analysis.",
+    impact: ["60% reduced manual effort", "Async Flask backend", "40% faster workflows"],
     stack: ["Flask", "Async", "Python", "WebSockets"],
+    github: "https://github.com/GitNinja4/Bug-Bounty-Recon-webApp",
+    live: "https://bug-bounty-recon-webapp.onrender.com/",
   },
 ];
 
@@ -418,13 +426,17 @@ function Projects() {
 
                 <div className="mt-6 pt-5 border-t border-border flex items-center gap-3">
                   <a
-                    href="#"
+                    href={p.github}
+                    target="_blank"
+                    rel="noreferrer"
                     className="inline-flex items-center gap-1.5 text-sm text-muted-foreground hover:text-foreground transition"
                   >
                     <Github className="size-4" /> Code
                   </a>
                   <a
-                    href="#"
+                    href={p.live}
+                    target="_blank"
+                    rel="noreferrer"
                     className="inline-flex items-center gap-1.5 text-sm text-muted-foreground hover:text-foreground transition"
                   >
                     <ExternalLink className="size-4" /> Live
@@ -443,11 +455,11 @@ const EXP = [
   {
     co: "Infosys Springboard",
     role: "Virtual Intern · Batch 13",
-    when: "Jan 2026 – Present",
+    when: "Jan 2026 – Apr 2026",
     bullets: [
-      "Building full-stack features with FastAPI and React.",
-      "Implementing AI/ML-assisted product capabilities.",
-      "REST APIs, modular architecture, Git-based workflows.",
+      "Developed full-stack application using FastAPI (backend) and React (frontend).",
+      "Implemented AI/ML-based features in team-based development environment.",
+      "Worked with REST APIs, Git, and modular coding practices.",
     ],
   },
   {
@@ -455,8 +467,9 @@ const EXP = [
     role: "Python Full-Stack Developer Intern",
     when: "Oct 2025 – Dec 2025",
     bullets: [
-      "Backend logic development and REST API implementation.",
-      "Debugging, performance fixes, and basic system design.",
+      "Completed 10-week AICTE-approved internship focused on full-stack development.",
+      "Developed backend logic and REST APIs using Python.",
+      "Improved debugging and system design skills.",
     ],
   },
 ];
@@ -596,10 +609,10 @@ function Contact() {
             <div className="space-y-3">
               {[
                 { icon: MapPin, label: "Location", value: "Mullana, Haryana, India" },
-                { icon: Mail, label: "Email", value: "aditya@example.com", href: "mailto:aditya@example.com" },
-                { icon: Phone, label: "Phone", value: "+91 00000 00000" },
-                { icon: Linkedin, label: "LinkedIn", value: "/in/aditya-anand", href: "#" },
-                { icon: Github, label: "GitHub", value: "@adityaanand", href: "#" },
+                { icon: Mail, label: "Email", value: "adityaanandk1234@gmail.com", href: "mailto:adityaanandk1234@gmail.com" },
+                { icon: Phone, label: "Phone", value: "+91-9334823399", href: "tel:+919334823399" },
+                { icon: Linkedin, label: "LinkedIn", value: "/in/aditya-26-anand", href: "https://www.linkedin.com/in/aditya-26-anand" },
+                { icon: Github, label: "GitHub", value: "GitNinja4", href: "https://github.com/GitNinja4" },
               ].map((c) => (
                 <a
                   key={c.label}
@@ -735,9 +748,9 @@ function Footer() {
         </div>
         <div className="flex items-center gap-2">
           {[
-            { icon: Github, href: "#" },
-            { icon: Linkedin, href: "#" },
-            { icon: Mail, href: "#" },
+            { icon: Github, href: "https://github.com/GitNinja4" },
+            { icon: Linkedin, href: "https://www.linkedin.com/in/aditya-26-anand" },
+            { icon: Mail, href: "mailto:adityaanandk1234@gmail.com" },
           ].map((s, i) => (
             <a
               key={i}
