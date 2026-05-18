@@ -3,6 +3,7 @@ import { ScrollProgress } from "@/components/ScrollProgress";
 import { Reveal } from "@/components/Reveal";
 import { FloatingElements } from "@/components/FloatingElements";
 import { AnimatedCounter } from "@/components/AnimatedCounter";
+import { CustomCursor } from "@/components/CustomCursor";
 import portrait from "@/assets/aditya-portrait.jpeg";
 import {
   ArrowUpRight,
@@ -789,6 +790,7 @@ function Footer() {
 export function Portfolio() {
   return (
     <div className="min-h-screen">
+      <CustomCursor />
       <FloatingElements />
       <ScrollProgress />
       <Navbar />
