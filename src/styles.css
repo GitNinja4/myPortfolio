@@ -128,5 +128,69 @@
   .float { animation: float 6s ease-in-out infinite; }
   @keyframes float { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-10px)} }
 
+  /* Floating orbs animation */
+  .float-orb { animation: floatOrb 8s ease-in-out infinite; }
+  @keyframes floatOrb { 
+    0% { transform: translateY(0px) translateX(0px); }
+    25% { transform: translateY(-30px) translateX(20px); }
+    50% { transform: translateY(-60px) translateX(-20px); }
+    75% { transform: translateY(-30px) translateX(30px); }
+    100% { transform: translateY(0px) translateX(0px); }
+  }
+
+  /* Pulsing glow animation */
+  .pulse-glow { animation: pulseGlow 3s ease-in-out infinite; }
+  @keyframes pulseGlow { 
+    0%, 100% { opacity: 0.4; filter: blur(20px) brightness(1); }
+    50% { opacity: 0.8; filter: blur(25px) brightness(1.2); }
+  }
+
+  /* Rotate animation */
+  .rotate-slow { animation: rotateSlow 20s linear infinite; }
+  @keyframes rotateSlow { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+
+  /* Scale pulse animation */
+  .scale-pulse { animation: scalePulse 2s ease-in-out infinite; }
+  @keyframes scalePulse { 
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+  }
+
+  /* Shimmer animation */
+  .shimmer { animation: shimmer 3s ease-in-out infinite; }
+  @keyframes shimmer {
+    0%, 100% { opacity: 0.5; }
+    50% { opacity: 1; }
+  }
+
+  /* Floating particle */
+  .particle {
+    position: fixed;
+    pointer-events: none;
+    z-index: 1;
+  }
+  .particle-1 { animation: particle1 15s ease-in infinite; }
+  .particle-2 { animation: particle2 18s ease-in infinite; }
+  .particle-3 { animation: particle3 20s ease-in infinite; }
+  
+  @keyframes particle1 {
+    0% { transform: translate(0, 100vh) scale(1); opacity: 0; }
+    10% { opacity: 1; }
+    90% { opacity: 1; }
+    100% { transform: translate(100px, -100vh) scale(0); opacity: 0; }
+  }
+  @keyframes particle2 {
+    0% { transform: translate(0, 100vh) scale(1); opacity: 0; }
+    10% { opacity: 1; }
+    90% { opacity: 1; }
+    100% { transform: translate(-100px, -100vh) scale(0); opacity: 0; }
+  }
+  @keyframes particle3 {
+    0% { transform: translate(0, 100vh) scale(1); opacity: 0; }
+    10% { opacity: 1; }
+    90% { opacity: 1; }
+    100% { transform: translate(50px, -100vh) scale(0); opacity: 0; }
+  }
+
   .scrollbar-hide::-webkit-scrollbar { display:none; }
 }

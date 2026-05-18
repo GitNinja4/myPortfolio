@@ -1,6 +1,7 @@
 import { Navbar } from "@/components/Navbar";
 import { ScrollProgress } from "@/components/ScrollProgress";
 import { Reveal } from "@/components/Reveal";
+import { FloatingElements } from "@/components/FloatingElements";
 import portrait from "@/assets/aditya-portrait.jpeg";
 import {
   ArrowUpRight,
@@ -67,6 +68,18 @@ function Hero() {
         className="absolute inset-x-0 top-0 h-[600px] pointer-events-none"
         style={{ background: "var(--gradient-glow)" }}
       />
+      
+      {/* Animated floating tech icons */}
+      <div className="absolute -top-20 right-10 w-20 h-20 rounded-full border border-border/20 flex items-center justify-center float-orb opacity-30 pointer-events-none">
+        <Code2 className="size-10 text-cyan-400" />
+      </div>
+      <div className="absolute top-40 -left-10 w-16 h-16 rounded-full border border-border/20 flex items-center justify-center float-orb opacity-20 pointer-events-none" style={{animationDelay: "2s"}}>
+        <Server className="size-8 text-purple-400" />
+      </div>
+      <div className="absolute bottom-20 right-20 w-14 h-14 rounded-full border border-border/20 flex items-center justify-center float-orb opacity-25 pointer-events-none" style={{animationDelay: "4s"}}>
+        <Database className="size-7 text-blue-400" />
+      </div>
+      
       <div className="relative mx-auto max-w-6xl px-4 grid md:grid-cols-[1.2fr_1fr] gap-10 items-center">
         <Reveal>
           <div className="inline-flex items-center gap-2 rounded-full border border-border bg-secondary/60 px-3 py-1 text-xs font-mono text-muted-foreground mb-6">
@@ -385,29 +398,29 @@ function Projects() {
         <div className="grid lg:grid-cols-3 gap-5">
           {PROJECTS.map((p, i) => (
             <Reveal key={p.name} delay={i * 100}>
-              <article className="group relative glow-border rounded-2xl glass p-6 h-full flex flex-col hover:-translate-y-1 transition">
-                <div className="aspect-[16/10] rounded-xl border border-border bg-secondary/60 mb-5 overflow-hidden relative">
-                  <div className="absolute inset-0 grid-bg opacity-60" />
+              <article className="group relative glow-border rounded-2xl glass p-6 h-full flex flex-col hover:-translate-y-2 hover:shadow-[0_0_50px_rgba(120,119,198,0.2)] transition-all duration-300">
+                <div className="aspect-[16/10] rounded-xl border border-border bg-gradient-to-br from-secondary/80 to-secondary/40 mb-5 overflow-hidden relative group-hover:border-[var(--color-cyan)]/40 transition-colors">
+                  <div className="absolute inset-0 grid-bg opacity-60 group-hover:opacity-80 transition-opacity" />
                   <div className="absolute inset-0 flex items-center justify-center">
-                    <div className="font-mono text-xs text-muted-foreground/80 px-3 py-1.5 rounded-md glass">
+                    <div className="font-mono text-xs text-muted-foreground/80 px-3 py-1.5 rounded-md glass group-hover:bg-secondary/80 transition">
                       $ ./{p.name.toLowerCase()} --start
                     </div>
                   </div>
                   <div
-                    className="absolute -bottom-10 -right-10 w-40 h-40 rounded-full opacity-50 blur-3xl"
+                    className="absolute -bottom-10 -right-10 w-40 h-40 rounded-full opacity-50 blur-3xl group-hover:opacity-70 transition-opacity"
                     style={{ background: "var(--gradient-primary)" }}
                   />
                 </div>
-                <div className="font-mono text-[11px] uppercase tracking-wider text-[var(--color-cyan)]">
+                <div className="font-mono text-[11px] uppercase tracking-wider text-[var(--color-cyan)] group-hover:text-cyan-300 transition">
                   {p.sub}
                 </div>
-                <h3 className="mt-2 text-xl font-semibold">{p.name}</h3>
-                <p className="mt-2 text-sm text-muted-foreground leading-relaxed">{p.desc}</p>
+                <h3 className="mt-2 text-xl font-semibold group-hover:text-gradient transition">{p.name}</h3>
+                <p className="mt-2 text-sm text-muted-foreground leading-relaxed group-hover:text-foreground/90 transition">{p.desc}</p>
 
                 <ul className="mt-4 space-y-1.5">
                   {p.impact.map((m) => (
-                    <li key={m} className="text-xs flex items-start gap-2 text-foreground/90">
-                      <Sparkles className="size-3.5 shrink-0 mt-0.5 text-[var(--color-cyan)]" />
+                    <li key={m} className="text-xs flex items-start gap-2 text-foreground/90 group-hover:text-foreground transition">
+                      <Sparkles className="size-3.5 shrink-0 mt-0.5 text-[var(--color-cyan)] group-hover:animate-spin" />
                       {m}
                     </li>
                   ))}
@@ -417,7 +430,7 @@ function Projects() {
                   {p.stack.map((s) => (
                     <span
                       key={s}
-                      className="font-mono text-[10px] px-2 py-0.5 rounded border border-border text-muted-foreground"
+                      className="font-mono text-[10px] px-2 py-0.5 rounded border border-border text-muted-foreground group-hover:border-[var(--color-cyan)]/40 group-hover:text-cyan-400 transition"
                     >
                       {s}
                     </span>
@@ -429,7 +442,7 @@ function Projects() {
                     href={p.github}
                     target="_blank"
                     rel="noreferrer"
-                    className="inline-flex items-center gap-1.5 text-sm text-muted-foreground hover:text-foreground transition"
+                    className="inline-flex items-center gap-1.5 text-sm text-muted-foreground hover:text-foreground hover:text-cyan-400 transition"
                   >
                     <Github className="size-4" /> Code
                   </a>
@@ -772,6 +785,7 @@ function Footer() {
 export function Portfolio() {
   return (
     <div className="min-h-screen">
+      <FloatingElements />
       <ScrollProgress />
       <Navbar />
       <main>
