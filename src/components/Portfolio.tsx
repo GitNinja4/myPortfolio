@@ -2,6 +2,7 @@ import { Navbar } from "@/components/Navbar";
 import { ScrollProgress } from "@/components/ScrollProgress";
 import { Reveal } from "@/components/Reveal";
 import { FloatingElements } from "@/components/FloatingElements";
+import { AnimatedCounter } from "@/components/AnimatedCounter";
 import portrait from "@/assets/aditya-portrait.jpeg";
 import {
   ArrowUpRight,
@@ -186,10 +187,10 @@ function SectionHeading({
 }
 
 const STATS = [
-  { k: "8.26", v: "Current CGPA" },
-  { k: "10+", v: "Projects Built" },
-  { k: "20+", v: "Technologies" },
-  { k: "5+", v: "Hackathons" },
+  { k: 8, suffix: ".26", v: "Current CGPA" },
+  { k: 10, suffix: "+", v: "Projects Built" },
+  { k: 20, suffix: "+", v: "Technologies" },
+  { k: 5, suffix: "+", v: "Hackathons" },
 ];
 
 function About() {
@@ -233,10 +234,12 @@ function About() {
               {STATS.map((s) => (
                 <div
                   key={s.v}
-                  className="glow-border rounded-2xl glass p-6 text-center hover:-translate-y-1 transition"
+                  className="glow-border rounded-2xl glass p-6 text-center hover:-translate-y-2 hover:shadow-[0_0_30px_rgba(120,119,198,0.15)] transition-all duration-300"
                 >
-                  <div className="text-3xl font-semibold text-gradient">{s.k}</div>
-                  <div className="mt-1 text-xs uppercase tracking-wider text-muted-foreground">
+                  <div className="text-4xl font-bold text-gradient">
+                    <AnimatedCounter target={s.k} suffix={s.suffix} />
+                  </div>
+                  <div className="mt-2 text-xs uppercase tracking-wider text-muted-foreground">
                     {s.v}
                   </div>
                 </div>
