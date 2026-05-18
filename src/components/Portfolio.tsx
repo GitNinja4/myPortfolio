@@ -282,24 +282,24 @@ function Education() {
           <div className="space-y-8">
             {EDU.map((e, i) => (
               <Reveal key={e.school} delay={i * 100}>
-                <div className="relative glass rounded-2xl p-6 sm:p-8 hover:border-[var(--color-cyan)]/30 transition">
+                <div className="relative group glass rounded-2xl p-6 sm:p-8 hover:border-[var(--color-cyan)]/50 hover:-translate-y-1 hover:shadow-[0_0_40px_rgba(120,119,198,0.15)] transition-all duration-300">
                   <span
-                    className="absolute -left-[33px] sm:-left-[37px] top-8 size-3 rounded-full"
+                    className="absolute -left-[33px] sm:-left-[37px] top-8 size-3 rounded-full group-hover:scale-125 transition-transform"
                     style={{ background: "var(--gradient-primary)", boxShadow: "0 0 20px oklch(0.78 0.16 220 / 0.6)" }}
                   />
                   <div className="flex flex-wrap items-start justify-between gap-4">
                     <div>
-                      <div className="flex items-center gap-2 text-[var(--color-cyan)]">
+                      <div className="flex items-center gap-2 text-[var(--color-cyan)] group-hover:text-cyan-300 transition">
                         <GraduationCap className="size-4" />
                         <span className="font-mono text-xs">{e.when}</span>
                       </div>
-                      <h3 className="mt-2 text-xl font-semibold">{e.school}</h3>
-                      <p className="text-muted-foreground">{e.deg}</p>
-                      <p className="mt-1 text-sm text-muted-foreground flex items-center gap-1">
+                      <h3 className="mt-2 text-xl font-semibold group-hover:text-gradient transition">{e.school}</h3>
+                      <p className="text-muted-foreground group-hover:text-foreground/80 transition">{e.deg}</p>
+                      <p className="mt-1 text-sm text-muted-foreground flex items-center gap-1 group-hover:text-foreground/70 transition">
                         <MapPin className="size-3.5" /> {e.where}
                       </p>
                     </div>
-                    <span className="font-mono text-sm rounded-full border border-border px-3 py-1 text-foreground">
+                    <span className="font-mono text-sm rounded-full border border-border bg-secondary/50 px-3 py-1 text-foreground group-hover:border-[var(--color-cyan)]/40 group-hover:text-cyan-300 transition">
                       {e.cgpa}
                     </span>
                   </div>
@@ -333,18 +333,18 @@ function Skills() {
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
           {SKILLS.map((s, i) => (
             <Reveal key={s.title} delay={i * 80}>
-              <div className="group glow-border rounded-2xl glass p-6 h-full hover:-translate-y-1 transition">
+              <div className="group glow-border rounded-2xl glass p-6 h-full hover:-translate-y-2 hover:shadow-[0_0_40px_rgba(120,119,198,0.15)] transition-all duration-300">
                 <div className="flex items-center gap-3 mb-5">
-                  <div className="size-10 rounded-xl bg-secondary border border-border flex items-center justify-center text-[var(--color-cyan)] group-hover:scale-110 transition">
-                    <s.icon className="size-5" />
+                  <div className="size-10 rounded-xl bg-gradient-to-br from-secondary/80 to-secondary/40 border border-border flex items-center justify-center text-[var(--color-cyan)] group-hover:scale-110 group-hover:border-[var(--color-cyan)]/40 transition-all">
+                    <s.icon className="size-5 group-hover:text-cyan-300" />
                   </div>
-                  <h3 className="font-semibold tracking-tight">{s.title}</h3>
+                  <h3 className="font-semibold tracking-tight group-hover:text-gradient transition">{s.title}</h3>
                 </div>
                 <div className="flex flex-wrap gap-2">
                   {s.items.map((it) => (
                     <span
                       key={it}
-                      className="font-mono text-xs px-2.5 py-1 rounded-md bg-secondary/70 border border-border text-muted-foreground group-hover:text-foreground transition"
+                      className="font-mono text-xs px-2.5 py-1 rounded-md bg-secondary/70 border border-border text-muted-foreground group-hover:border-[var(--color-cyan)]/40 group-hover:text-cyan-400 transition"
                     >
                       {it}
                     </span>
@@ -503,25 +503,25 @@ function Experience() {
           <div className="space-y-8">
             {EXP.map((e, i) => (
               <Reveal key={e.co} delay={i * 100}>
-                <div className="relative glass rounded-2xl p-6 sm:p-8">
+                <div className="relative group glass rounded-2xl p-6 sm:p-8 hover:border-[var(--color-cyan)]/50 hover:-translate-y-1 hover:shadow-[0_0_40px_rgba(120,119,198,0.15)] transition-all duration-300">
                   <span
-                    className="absolute -left-[33px] sm:-left-[37px] top-8 size-3 rounded-full"
+                    className="absolute -left-[33px] sm:-left-[37px] top-8 size-3 rounded-full group-hover:scale-125 transition-transform"
                     style={{ background: "var(--gradient-primary)", boxShadow: "0 0 20px oklch(0.78 0.16 220 / 0.6)" }}
                   />
                   <div className="flex flex-wrap items-start justify-between gap-3">
                     <div>
-                      <div className="flex items-center gap-2 text-[var(--color-cyan)]">
+                      <div className="flex items-center gap-2 text-[var(--color-cyan)] group-hover:text-cyan-300 transition">
                         <Briefcase className="size-4" />
                         <span className="font-mono text-xs">{e.when}</span>
                       </div>
-                      <h3 className="mt-2 text-xl font-semibold">{e.co}</h3>
-                      <p className="text-muted-foreground">{e.role}</p>
+                      <h3 className="mt-2 text-xl font-semibold group-hover:text-gradient transition">{e.co}</h3>
+                      <p className="text-muted-foreground group-hover:text-foreground/80 transition">{e.role}</p>
                     </div>
                   </div>
-                  <ul className="mt-4 space-y-2 text-sm text-muted-foreground">
+                  <ul className="mt-4 space-y-2 text-sm text-muted-foreground group-hover:text-foreground/80 transition">
                     {e.bullets.map((b) => (
                       <li key={b} className="flex items-start gap-2">
-                        <span className="text-[var(--color-cyan)] mt-1">▸</span> {b}
+                        <span className="text-[var(--color-cyan)] mt-1 group-hover:text-cyan-300 transition">▸</span> {b}
                       </li>
                     ))}
                   </ul>
@@ -549,12 +549,12 @@ function Achievements() {
         <div className="grid sm:grid-cols-3 gap-4">
           {ACH.map((a, i) => (
             <Reveal key={a.t} delay={i * 80}>
-              <div className="glow-border rounded-2xl glass p-6 h-full hover:-translate-y-1 transition">
-                <div className="size-11 rounded-xl bg-secondary border border-border flex items-center justify-center mb-4 text-[var(--color-cyan)]">
-                  <Trophy className="size-5" />
+              <div className="group glow-border rounded-2xl glass p-6 h-full hover:-translate-y-2 hover:shadow-[0_0_40px_rgba(120,119,198,0.15)] transition-all duration-300">
+                <div className="size-11 rounded-xl bg-gradient-to-br from-secondary/80 to-secondary/40 border border-border flex items-center justify-center mb-4 text-[var(--color-cyan)] group-hover:scale-110 group-hover:border-[var(--color-cyan)]/40 transition-all">
+                  <Trophy className="size-5 group-hover:animate-bounce" />
                 </div>
-                <h3 className="font-semibold">{a.t}</h3>
-                <p className="text-sm text-muted-foreground mt-1">{a.d}</p>
+                <h3 className="font-semibold group-hover:text-gradient transition">{a.t}</h3>
+                <p className="text-sm text-muted-foreground mt-1 group-hover:text-foreground/80 transition">{a.d}</p>
               </div>
             </Reveal>
           ))}
