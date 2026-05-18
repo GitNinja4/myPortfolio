@@ -629,22 +629,23 @@ function Contact() {
                 { icon: Phone, label: "Phone", value: "+91-9334823399", href: "tel:+919334823399" },
                 { icon: Linkedin, label: "LinkedIn", value: "/in/aditya-26-anand", href: "https://www.linkedin.com/in/aditya-26-anand" },
                 { icon: Github, label: "GitHub", value: "GitNinja4", href: "https://github.com/GitNinja4" },
-              ].map((c) => (
+              ].map((c, i) => (
                 <a
                   key={c.label}
                   href={c.href ?? "#"}
-                  className="group flex items-center gap-4 glass rounded-2xl p-4 hover:border-[var(--color-cyan)]/30 transition"
+                  style={{ animationDelay: `${i * 0.1}s` }}
+                  className="group flex items-center gap-4 glass rounded-2xl p-4 hover:border-[var(--color-cyan)]/50 hover:shadow-[0_0_30px_rgba(120,119,198,0.15)] hover:-translate-y-1 transition-all duration-300 fade-scale"
                 >
-                  <div className="size-10 rounded-xl bg-secondary border border-border flex items-center justify-center text-[var(--color-cyan)] group-hover:scale-110 transition">
-                    <c.icon className="size-4" />
+                  <div className="size-10 rounded-xl bg-gradient-to-br from-secondary/80 to-secondary/40 border border-border flex items-center justify-center text-[var(--color-cyan)] group-hover:scale-110 group-hover:border-[var(--color-cyan)]/40 transition-all">
+                    <c.icon className="size-4 group-hover:text-cyan-300" />
                   </div>
                   <div className="flex-1 min-w-0">
-                    <div className="text-[11px] uppercase tracking-wider text-muted-foreground font-mono">
+                    <div className="text-[11px] uppercase tracking-wider text-muted-foreground font-mono group-hover:text-cyan-300 transition">
                       {c.label}
                     </div>
-                    <div className="text-sm truncate">{c.value}</div>
+                    <div className="text-sm truncate group-hover:text-foreground transition">{c.value}</div>
                   </div>
-                  <ArrowUpRight className="size-4 text-muted-foreground group-hover:text-foreground group-hover:-translate-y-0.5 group-hover:translate-x-0.5 transition" />
+                  <ArrowUpRight className="size-4 text-muted-foreground group-hover:text-foreground group-hover:text-cyan-400 group-hover:-translate-y-0.5 group-hover:translate-x-0.5 transition" />
                 </a>
               ))}
             </div>
