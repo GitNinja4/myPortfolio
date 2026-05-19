@@ -62,92 +62,104 @@ function Typed() {
 
 function Hero() {
   return (
-    <section id="home" className="relative pt-28 pb-18 sm:pt-36 sm:pb-24 overflow-hidden">
-      <div className="absolute inset-0 grid-bg pointer-events-none" />
-      <div
-        className="absolute inset-x-0 top-0 h-[600px] pointer-events-none"
-        style={{ background: "var(--gradient-glow)" }}
-      />
-      <div className="relative mx-auto max-w-6xl px-4 grid md:grid-cols-[1.2fr_1fr] gap-10 items-center">
-        <Reveal>
-          <div className="inline-flex items-center gap-2 rounded-full border border-border bg-secondary/60 px-3 py-1 text-xs font-mono text-muted-foreground mb-6">
-            <span className="size-1.5 rounded-full bg-[var(--color-cyan)] animate-pulse" />
-            open to opportunities
-          </div>
-          <h1 className="text-5xl sm:text-6xl lg:text-7xl font-semibold tracking-tight leading-[1.05]">
-            Aditya <span className="text-gradient">Anand</span>
-          </h1>
-          <div className="mt-5 text-lg sm:text-xl text-muted-foreground min-h-[1.75rem]">
-            <Typed />
-          </div>
-          <p className="mt-6 max-w-xl text-base sm:text-lg text-muted-foreground leading-relaxed">
-            Backend-focused Computer Science undergraduate passionate about building
-            scalable systems, secure APIs, and high-performance applications.
-          </p>
-
-          <div className="mt-7 flex flex-wrap gap-3">
-            <a
-              href="#projects"
-              className="group inline-flex items-center gap-2 rounded-full bg-foreground text-background px-5 py-2.5 text-sm font-medium hover:opacity-90 transition"
-            >
-              View Projects
-              <ArrowUpRight className="size-4 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
-            </a>
-            <a
-              href="#contact"
-              className="inline-flex items-center gap-2 rounded-full glow-border bg-secondary px-5 py-2.5 text-sm font-medium hover:bg-accent transition"
-            >
-              <Mail className="size-4" /> Contact Me
-            </a>
-            <a
-              href="https://drive.google.com/file/d/1WivYU3O0mo9HapYG8hZkyYL3Z2DPxgYF/view?usp=drive_link"
-              target="_blank"
-              rel="noreferrer"
-              className="inline-flex items-center gap-2 rounded-full border border-border px-5 py-2.5 text-sm font-medium text-muted-foreground hover:text-foreground hover:border-foreground/30 transition"
-            >
-              <Download className="size-4" /> Resume
-            </a>
-          </div>
-
-          <div className="mt-8 flex flex-wrap gap-2">
-            {TECH.map((t) => (
-              <span
-                key={t}
-                className="font-mono text-xs px-3 py-1.5 rounded-full bg-secondary/70 border border-border text-muted-foreground hover:text-foreground hover:border-[var(--color-cyan)]/40 transition"
-              >
-                {t}
-              </span>
-            ))}
-          </div>
-        </Reveal>
-
-        <Reveal delay={150}>
-          <div className="relative mx-auto w-full max-w-sm">
-            <div
-              className="absolute -inset-6 rounded-[2rem] blur-3xl opacity-40"
-              style={{ background: "var(--gradient-primary)" }}
-            />
-            <div className="relative rounded-[2rem] glass p-3 shadow-[var(--shadow-glow)]">
-              <div className="rounded-[1.5rem] overflow-hidden border border-border">
+    <>
+      <section id="home" className="relative pt-28 pb-0 sm:pt-36 sm:pb-0 overflow-hidden">
+        <div className="absolute inset-0 grid-bg pointer-events-none" />
+        <div
+          className="absolute inset-x-0 top-0 h-[600px] pointer-events-none"
+          style={{ background: "var(--gradient-glow)" }}
+        />
+        <div className="relative mx-auto max-w-6xl px-4 grid md:grid-cols-[1fr_1.2fr] gap-8 md:gap-12 items-center">
+          {/* Profile Image - Left Side */}
+          <Reveal delay={150}>
+            <div className="relative mx-auto w-full max-w-xs order-first md:order-first">
+              <div
+                className="absolute -inset-8 rounded-full blur-3xl opacity-30"
+                style={{ background: "var(--gradient-primary)" }}
+              />
+              <div className="profile-glow">
                 <img
                   src={portrait}
                   alt="Portrait of Aditya Anand"
                   width={896}
                   height={1152}
-                  className="w-full h-auto object-cover"
+                  className="w-full h-full object-cover"
                 />
               </div>
-              <div className="absolute -bottom-3 -right-3 glass rounded-2xl px-3 py-2 font-mono text-xs flex items-center gap-2">
-                <Terminal className="size-3.5 text-[var(--color-cyan)]" />
-                <span className="text-muted-foreground">~/aditya</span>
-                <span className="text-foreground">$</span>
-                <span className="blink" />
+            </div>
+          </Reveal>
+
+          {/* Content - Right Side */}
+          <Reveal>
+            <div>
+              <div className="inline-flex items-center gap-2 rounded-full border border-border bg-secondary/60 px-3 py-1 text-xs font-mono text-muted-foreground mb-6">
+                <span className="size-1.5 rounded-full bg-[var(--color-cyan)] animate-pulse" />
+                open to opportunities
+              </div>
+              <h1 className="text-5xl sm:text-6xl lg:text-7xl font-semibold tracking-tight leading-[1.05]">
+                Aditya <span className="text-gradient">Anand</span>
+              </h1>
+              <div className="mt-5 text-lg sm:text-xl text-muted-foreground min-h-[1.75rem]">
+                <Typed />
+              </div>
+              <p className="mt-6 max-w-xl text-base sm:text-lg text-muted-foreground leading-relaxed">
+                Backend-focused Computer Science undergraduate passionate about building
+                scalable systems, secure APIs, and high-performance applications.
+              </p>
+
+              <div className="mt-8 flex flex-wrap gap-3">
+                <a
+                  href="#contact"
+                  className="group inline-flex items-center gap-2 rounded-lg bg-[var(--color-cyan)] text-background px-6 py-3 text-sm font-semibold hover:opacity-90 transition shadow-lg hover:shadow-xl"
+                >
+                  Subscribe
+                  <ArrowUpRight className="size-4 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+                </a>
+                <a
+                  href="https://drive.google.com/file/d/1WivYU3O0mo9HapYG8hZkyYL3Z2DPxgYF/view?usp=drive_link"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="inline-flex items-center gap-2 rounded-lg glow-border bg-secondary px-6 py-3 text-sm font-semibold hover:bg-accent transition"
+                >
+                  <Download className="size-4" /> Download Resume
+                </a>
+              </div>
+
+              <div className="mt-10 flex flex-wrap gap-2">
+                {TECH.map((t) => (
+                  <span
+                    key={t}
+                    className="font-mono text-xs px-3 py-1.5 rounded-full bg-secondary/70 border border-border text-muted-foreground hover:text-foreground hover:border-[var(--color-cyan)]/40 transition"
+                  >
+                    {t}
+                  </span>
+                ))}
               </div>
             </div>
+          </Reveal>
+        </div>
+      </section>
+
+      {/* Stats Section Below Hero */}
+      <section className="relative py-16 sm:py-24 border-t border-border">
+        <div className="mx-auto max-w-6xl px-4">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6">
+            {STATS.map((s, i) => (
+              <Reveal key={s.v} delay={i * 100}>
+                <div className="rounded-2xl glass p-6 sm:p-8 text-center hover:border-[var(--color-cyan)]/30 transition">
+                  <div className="text-3xl sm:text-4xl font-bold text-gradient">
+                    <AnimatedCounter target={s.k} suffix={s.suffix} />
+                  </div>
+                  <div className="mt-3 text-xs sm:text-sm uppercase tracking-wider text-muted-foreground font-semibold">
+                    {s.v}
+                  </div>
+                </div>
+              </Reveal>
+            ))}
           </div>
-        </Reveal>
-      </div>
-    </section>
+        </div>
+      </section>
+    </>
   );
 }
 
@@ -217,20 +229,16 @@ function About() {
             </div>
           </Reveal>
           <Reveal delay={120}>
-            <div className="grid grid-cols-2 gap-4">
-              {STATS.map((s) => (
-                <div
-                  key={s.v}
-                  className="rounded-2xl glass p-6 text-center hover:border-[var(--color-cyan)]/30 transition"
-                >
-                  <div className="text-4xl font-bold text-gradient">
-                    <AnimatedCounter target={s.k} suffix={s.suffix} />
-                  </div>
-                  <div className="mt-2 text-xs uppercase tracking-wider text-muted-foreground">
-                    {s.v}
-                  </div>
-                </div>
-              ))}
+            <div className="glass rounded-2xl p-8 space-y-5 text-muted-foreground leading-relaxed">
+              <p>
+                When I'm not coding, I'm diving deep into system design concepts, exploring
+                cloud infrastructure, or contributing to open-source projects. I believe in
+                continuous learning and staying updated with emerging technologies.
+              </p>
+              <p>
+                I'm actively seeking internship opportunities where I can apply my technical
+                skills and grow alongside experienced engineers.
+              </p>
             </div>
           </Reveal>
         </div>
