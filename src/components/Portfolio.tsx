@@ -1,9 +1,7 @@
 import { Navbar } from "@/components/Navbar";
 import { ScrollProgress } from "@/components/ScrollProgress";
 import { Reveal } from "@/components/Reveal";
-import { FloatingElements } from "@/components/FloatingElements";
 import { AnimatedCounter } from "@/components/AnimatedCounter";
-import { CustomCursor } from "@/components/CustomCursor";
 import portrait from "@/assets/aditya-portrait.jpeg";
 import {
   ArrowUpRight,
@@ -70,18 +68,6 @@ function Hero() {
         className="absolute inset-x-0 top-0 h-[600px] pointer-events-none"
         style={{ background: "var(--gradient-glow)" }}
       />
-      
-      {/* Animated floating tech icons */}
-      <div className="absolute -top-20 right-10 w-20 h-20 rounded-full border border-border/20 flex items-center justify-center float-orb opacity-30 pointer-events-none">
-        <Code2 className="size-10 text-cyan-400" />
-      </div>
-      <div className="absolute top-40 -left-10 w-16 h-16 rounded-full border border-border/20 flex items-center justify-center float-orb opacity-20 pointer-events-none" style={{animationDelay: "2s"}}>
-        <Server className="size-8 text-purple-400" />
-      </div>
-      <div className="absolute bottom-20 right-20 w-14 h-14 rounded-full border border-border/20 flex items-center justify-center float-orb opacity-25 pointer-events-none" style={{animationDelay: "4s"}}>
-        <Database className="size-7 text-blue-400" />
-      </div>
-      
       <div className="relative mx-auto max-w-6xl px-4 grid md:grid-cols-[1.2fr_1fr] gap-10 items-center">
         <Reveal>
           <div className="inline-flex items-center gap-2 rounded-full border border-border bg-secondary/60 px-3 py-1 text-xs font-mono text-muted-foreground mb-6">
@@ -235,7 +221,7 @@ function About() {
               {STATS.map((s) => (
                 <div
                   key={s.v}
-                  className="glow-border rounded-2xl glass p-6 text-center hover:-translate-y-2 hover:shadow-[0_0_30px_rgba(120,119,198,0.15)] transition-all duration-300"
+                  className="rounded-2xl glass p-6 text-center hover:border-[var(--color-cyan)]/30 transition"
                 >
                   <div className="text-4xl font-bold text-gradient">
                     <AnimatedCounter target={s.k} suffix={s.suffix} />
@@ -283,24 +269,24 @@ function Education() {
           <div className="space-y-8">
             {EDU.map((e, i) => (
               <Reveal key={e.school} delay={i * 100}>
-                <div className="relative group glass rounded-2xl p-6 sm:p-8 hover:border-[var(--color-cyan)]/50 hover:-translate-y-1 hover:shadow-[0_0_40px_rgba(120,119,198,0.15)] transition-all duration-300">
+                <div className="relative glass rounded-2xl p-6 sm:p-8 hover:border-[var(--color-cyan)]/30 transition">
                   <span
-                    className="absolute -left-[33px] sm:-left-[37px] top-8 size-3 rounded-full group-hover:scale-125 transition-transform"
+                    className="absolute -left-[33px] sm:-left-[37px] top-8 size-3 rounded-full"
                     style={{ background: "var(--gradient-primary)", boxShadow: "0 0 20px oklch(0.78 0.16 220 / 0.6)" }}
                   />
                   <div className="flex flex-wrap items-start justify-between gap-4">
                     <div>
-                      <div className="flex items-center gap-2 text-[var(--color-cyan)] group-hover:text-cyan-300 transition">
+                      <div className="flex items-center gap-2 text-[var(--color-cyan)]">
                         <GraduationCap className="size-4" />
                         <span className="font-mono text-xs">{e.when}</span>
                       </div>
-                      <h3 className="mt-2 text-xl font-semibold group-hover:text-gradient transition">{e.school}</h3>
-                      <p className="text-muted-foreground group-hover:text-foreground/80 transition">{e.deg}</p>
-                      <p className="mt-1 text-sm text-muted-foreground flex items-center gap-1 group-hover:text-foreground/70 transition">
+                      <h3 className="mt-2 text-xl font-semibold">{e.school}</h3>
+                      <p className="text-muted-foreground">{e.deg}</p>
+                      <p className="mt-1 text-sm text-muted-foreground flex items-center gap-1">
                         <MapPin className="size-3.5" /> {e.where}
                       </p>
                     </div>
-                    <span className="font-mono text-sm rounded-full border border-border bg-secondary/50 px-3 py-1 text-foreground group-hover:border-[var(--color-cyan)]/40 group-hover:text-cyan-300 transition">
+                    <span className="font-mono text-sm rounded-full border border-border px-3 py-1 text-foreground">
                       {e.cgpa}
                     </span>
                   </div>
@@ -334,18 +320,18 @@ function Skills() {
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
           {SKILLS.map((s, i) => (
             <Reveal key={s.title} delay={i * 80}>
-              <div className="group glow-border rounded-2xl glass p-6 h-full hover:-translate-y-2 hover:shadow-[0_0_40px_rgba(120,119,198,0.15)] transition-all duration-300">
+              <div className="rounded-2xl glass p-6 h-full hover:border-[var(--color-cyan)]/30 transition">
                 <div className="flex items-center gap-3 mb-5">
-                  <div className="size-10 rounded-xl bg-gradient-to-br from-secondary/80 to-secondary/40 border border-border flex items-center justify-center text-[var(--color-cyan)] group-hover:scale-110 group-hover:border-[var(--color-cyan)]/40 transition-all">
-                    <s.icon className="size-5 group-hover:text-cyan-300" />
+                  <div className="size-10 rounded-xl bg-secondary border border-border flex items-center justify-center text-[var(--color-cyan)]">
+                    <s.icon className="size-5" />
                   </div>
-                  <h3 className="font-semibold tracking-tight group-hover:text-gradient transition">{s.title}</h3>
+                  <h3 className="font-semibold tracking-tight">{s.title}</h3>
                 </div>
                 <div className="flex flex-wrap gap-2">
                   {s.items.map((it) => (
                     <span
                       key={it}
-                      className="font-mono text-xs px-2.5 py-1 rounded-md bg-secondary/70 border border-border text-muted-foreground group-hover:border-[var(--color-cyan)]/40 group-hover:text-cyan-400 transition"
+                      className="font-mono text-xs px-2.5 py-1 rounded-md bg-secondary/70 border border-border text-muted-foreground"
                     >
                       {it}
                     </span>
@@ -504,25 +490,25 @@ function Experience() {
           <div className="space-y-8">
             {EXP.map((e, i) => (
               <Reveal key={e.co} delay={i * 100}>
-                <div className="relative group glass rounded-2xl p-6 sm:p-8 hover:border-[var(--color-cyan)]/50 hover:-translate-y-1 hover:shadow-[0_0_40px_rgba(120,119,198,0.15)] transition-all duration-300">
+                <div className="relative glass rounded-2xl p-6 sm:p-8 hover:border-[var(--color-cyan)]/30 transition">
                   <span
-                    className="absolute -left-[33px] sm:-left-[37px] top-8 size-3 rounded-full group-hover:scale-125 transition-transform"
+                    className="absolute -left-[33px] sm:-left-[37px] top-8 size-3 rounded-full"
                     style={{ background: "var(--gradient-primary)", boxShadow: "0 0 20px oklch(0.78 0.16 220 / 0.6)" }}
                   />
                   <div className="flex flex-wrap items-start justify-between gap-3">
                     <div>
-                      <div className="flex items-center gap-2 text-[var(--color-cyan)] group-hover:text-cyan-300 transition">
+                      <div className="flex items-center gap-2 text-[var(--color-cyan)]">
                         <Briefcase className="size-4" />
                         <span className="font-mono text-xs">{e.when}</span>
                       </div>
-                      <h3 className="mt-2 text-xl font-semibold group-hover:text-gradient transition">{e.co}</h3>
-                      <p className="text-muted-foreground group-hover:text-foreground/80 transition">{e.role}</p>
+                      <h3 className="mt-2 text-xl font-semibold">{e.co}</h3>
+                      <p className="text-muted-foreground">{e.role}</p>
                     </div>
                   </div>
-                  <ul className="mt-4 space-y-2 text-sm text-muted-foreground group-hover:text-foreground/80 transition">
+                  <ul className="mt-4 space-y-2 text-sm text-muted-foreground">
                     {e.bullets.map((b) => (
                       <li key={b} className="flex items-start gap-2">
-                        <span className="text-[var(--color-cyan)] mt-1 group-hover:text-cyan-300 transition">▸</span> {b}
+                        <span className="text-[var(--color-cyan)] mt-1">▸</span> {b}
                       </li>
                     ))}
                   </ul>
@@ -550,12 +536,12 @@ function Achievements() {
         <div className="grid sm:grid-cols-3 gap-4">
           {ACH.map((a, i) => (
             <Reveal key={a.t} delay={i * 80}>
-              <div className="group glow-border rounded-2xl glass p-6 h-full hover:-translate-y-2 hover:shadow-[0_0_40px_rgba(120,119,198,0.15)] transition-all duration-300">
-                <div className="size-11 rounded-xl bg-gradient-to-br from-secondary/80 to-secondary/40 border border-border flex items-center justify-center mb-4 text-[var(--color-cyan)] group-hover:scale-110 group-hover:border-[var(--color-cyan)]/40 transition-all">
-                  <Trophy className="size-5 group-hover:animate-bounce" />
+              <div className="rounded-2xl glass p-6 h-full hover:border-[var(--color-cyan)]/30 transition">
+                <div className="size-11 rounded-xl bg-secondary border border-border flex items-center justify-center mb-4 text-[var(--color-cyan)]">
+                  <Trophy className="size-5" />
                 </div>
-                <h3 className="font-semibold group-hover:text-gradient transition">{a.t}</h3>
-                <p className="text-sm text-muted-foreground mt-1 group-hover:text-foreground/80 transition">{a.d}</p>
+                <h3 className="font-semibold">{a.t}</h3>
+                <p className="text-sm text-muted-foreground mt-1">{a.d}</p>
               </div>
             </Reveal>
           ))}
@@ -630,23 +616,22 @@ function Contact() {
                 { icon: Phone, label: "Phone", value: "+91-9334823399", href: "tel:+919334823399" },
                 { icon: Linkedin, label: "LinkedIn", value: "/in/aditya-26-anand", href: "https://www.linkedin.com/in/aditya-26-anand" },
                 { icon: Github, label: "GitHub", value: "GitNinja4", href: "https://github.com/GitNinja4" },
-              ].map((c, i) => (
+              ].map((c) => (
                 <a
                   key={c.label}
                   href={c.href ?? "#"}
-                  style={{ animationDelay: `${i * 0.1}s` }}
-                  className="group flex items-center gap-4 glass rounded-2xl p-4 hover:border-[var(--color-cyan)]/50 hover:shadow-[0_0_30px_rgba(120,119,198,0.15)] hover:-translate-y-1 transition-all duration-300 fade-scale"
+                  className="group flex items-center gap-4 glass rounded-2xl p-4 hover:border-[var(--color-cyan)]/30 transition"
                 >
-                  <div className="size-10 rounded-xl bg-gradient-to-br from-secondary/80 to-secondary/40 border border-border flex items-center justify-center text-[var(--color-cyan)] group-hover:scale-110 group-hover:border-[var(--color-cyan)]/40 transition-all">
-                    <c.icon className="size-4 group-hover:text-cyan-300" />
+                  <div className="size-10 rounded-xl bg-secondary border border-border flex items-center justify-center text-[var(--color-cyan)]">
+                    <c.icon className="size-4" />
                   </div>
                   <div className="flex-1 min-w-0">
-                    <div className="text-[11px] uppercase tracking-wider text-muted-foreground font-mono group-hover:text-cyan-300 transition">
+                    <div className="text-[11px] uppercase tracking-wider text-muted-foreground font-mono">
                       {c.label}
                     </div>
-                    <div className="text-sm truncate group-hover:text-foreground transition">{c.value}</div>
+                    <div className="text-sm truncate">{c.value}</div>
                   </div>
-                  <ArrowUpRight className="size-4 text-muted-foreground group-hover:text-foreground group-hover:text-cyan-400 group-hover:-translate-y-0.5 group-hover:translate-x-0.5 transition" />
+                  <ArrowUpRight className="size-4 text-muted-foreground group-hover:text-foreground group-hover:-translate-y-0.5 group-hover:translate-x-0.5 transition" />
                 </a>
               ))}
             </div>
@@ -790,8 +775,6 @@ function Footer() {
 export function Portfolio() {
   return (
     <div className="min-h-screen">
-      <CustomCursor />
-      <FloatingElements />
       <ScrollProgress />
       <Navbar />
       <main>
